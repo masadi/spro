@@ -12,7 +12,7 @@
 
   <link rel="stylesheet" href="{{ asset(mix('/css/app.css')) }}">
 </head>
-<body class="hold-transition sidebar-mini">
+<body class="hold-transition sidebar-mini text-sm">
 <div class="wrapper" id="app">
 
   <!-- Navbar -->
