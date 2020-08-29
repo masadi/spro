@@ -10,7 +10,7 @@
   <title>{{ config('app.name', 'Laravel') }}</title>
   
 
-  <link rel="stylesheet" href="{{ mix('/css/app.css') }}">
+  <link rel="stylesheet" href="{{ asset(mix('/css/app.css')) }}">
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper" id="app">
@@ -121,6 +121,6 @@
     window.user = @json(auth()->user())
 </script>
 @endauth
-<script src="{{ mix('/js/app.js') }}"></script>
+<script src="{{ asset(mix('/js/app.js')) }}"></script>
 </body>
 </html>
