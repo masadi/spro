@@ -116,6 +116,12 @@
                                 class="form-control" :class="{ 'is-invalid': form.errors.has('nomor_rekening') }">
                             <has-error :form="form" field="nomor_rekening"></has-error>
                         </div>
+                        <div class="form-group">
+                            <label>SUB IB</label>
+                            <input v-model="form.sub_ib" type="checkbox" name="sub_ib" value="ya"
+                                class="form-control" :class="{ 'is-invalid': form.errors.has('sub_ib') }">
+                            <has-error :form="form" field="sub_ib"></has-error>
+                        </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
