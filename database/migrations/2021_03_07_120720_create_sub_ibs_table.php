@@ -21,6 +21,7 @@ class CreateSubIbsTable extends Migration
             $table->string('telepon')->nullable();
             $table->string('bank');
             $table->string('nomor_rekening');
+            $table->enum('sub_ib', ['ya', 'tidak']);
             $table->timestamps();
         });
     }

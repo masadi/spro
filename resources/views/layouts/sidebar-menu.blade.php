@@ -20,7 +20,7 @@
         <ul class="nav nav-treeview">
 
           <li class="nav-item">
-            <router-link to="/product/category" class="nav-link">
+            <router-link to="/master/sub-ib" class="nav-link">
               <i class="nav-icon fas fa-list-ol orange"></i>
               <p>
                 Data SUB IB

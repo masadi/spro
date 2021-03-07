@@ -36,4 +36,5 @@ Route::apiResources([
     'product' => 'API\V1\ProductController',
     'category' => 'API\V1\CategoryController',
     'tag' => 'API\V1\TagController',
+    'sub-ib' => 'SubibController',
 ]);
