@@ -99,6 +99,11 @@ Vue.filter('yesno', value => (value ? '<i class="fas fa-check green"></i>' : '<i
 // end Filter
 
 Vue.component('example-component', require('./components/ExampleComponent.vue'));
+import Vue from 'vue'
+import vSelect from 'vue-select'
+
+Vue.component('v-select', vSelect)
+import 'vue-select/dist/vue-select.css';
 
 const app = new Vue({
     el: '#app',

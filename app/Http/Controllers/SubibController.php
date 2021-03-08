@@ -37,9 +37,9 @@ class SubibController extends BaseController
      */
     public function list()
     {
-        $categories = $this->sub_ib->pluck('nama_lengkap', 'id');
+        $categories = $this->sub_ib->select('nama_lengkap', 'id')->get();
 
-        return $this->sendResponse($categories, 'Category list');
+        return $this->sendResponse($categories, 'Data SUB IB');
     }
 
 

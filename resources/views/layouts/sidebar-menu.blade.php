@@ -28,7 +28,7 @@
             </router-link>
           </li>
           <li class="nav-item">
-            <router-link to="/product/tag" class="nav-link">
+            <router-link to="/master/trader" class="nav-link">
               <i class="nav-icon fas fa-tags orange"></i>
               <p>
                 Data Trader
