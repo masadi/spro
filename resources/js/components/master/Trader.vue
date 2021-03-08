@@ -201,6 +201,7 @@
             },
             editModal(trader){
                 this.editmode = true;
+                this.loaddata_sub_ib();
                 this.form.reset();
                 $('#addNew').modal('show');
                 this.form.fill(trader);
