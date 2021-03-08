@@ -120,9 +120,9 @@
                         </div>
                         <div class="form-group">
                             <label>Nilai Rebate</label>
-                            <input v-model="form.rebate" type="text" name="rebate"
-                                class="form-control" :class="{ 'is-invalid': form.errors.has('rebate') }" required>
-                            <has-error :form="form" field="rebate"></has-error>
+                            <input v-model="form.nilai_rebate" type="text" name="nilai_rebate"
+                                class="form-control" :class="{ 'is-invalid': form.errors.has('nilai_rebate') }" required>
+                            <has-error :form="form" field="nilai_rebate"></has-error>
                         </div>
                         <div class="form-group">
                             <label>SUB IB</label>
@@ -132,8 +132,8 @@
                                 <option value="user">Standard User</option>
                             </select>
                             <has-error :form="form" field="sub_id_id"></has-error-->
-                            <v-select :options="data_sub_ib" v-model="form.data_sub_ib" :class="{ 'is-invalid': form.errors.has('sub_id_id') }" required></v-select>
-                            <has-error :form="form" field="sub_id_id"></has-error>
+                            <v-select :options="data_sub_ib" v-model="form.sub_ib_id" :class="{ 'is-invalid': form.errors.has('sub_ib_id') }" required></v-select>
+                            <has-error :form="form" field="sub_ib_id"></has-error>
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -164,8 +164,8 @@
                     telepon: '',
                     bank: '',
                     nomor_rekening: '',
-                    rebate: '',
-                    data_sub_ib: '',
+                    nilai_rebate: '',
+                    sub_ib_id: '',
                 })
             }
         },
@@ -204,6 +204,7 @@
                 this.form.reset();
                 $('#addNew').modal('show');
                 this.form.fill(trader);
+                console.log(trader)
             },
             newModal(){
                 this.loaddata_sub_ib();
