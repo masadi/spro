@@ -20,10 +20,10 @@
         <ul class="nav nav-treeview">
 
           <li class="nav-item">
-            <router-link to="/master/sub-ib" class="nav-link">
-              <i class="nav-icon fas fa-list-ol orange"></i>
+            <router-link to="/master/kurs-dollar" class="nav-link">
+              <i class="nav-icon fas fa-search-dollar orange"></i>
               <p>
-                Data SUB IB
+                Kurs Dollar
               </p>
             </router-link>
           </li>
@@ -32,6 +32,14 @@
               <i class="nav-icon fas fa-tags orange"></i>
               <p>
                 Data Trader
+              </p>
+            </router-link>
+          </li>
+          <li class="nav-item">
+            <router-link to="/master/sub-ib" class="nav-link">
+              <i class="nav-icon fas fa-list-ol orange"></i>
+              <p>
+                Data SUB IB
               </p>
             </router-link>
           </li>

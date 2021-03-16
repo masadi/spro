@@ -38,4 +38,5 @@ Route::apiResources([
     'tag' => 'API\V1\TagController',
     'sub-ib' => 'SubibController',
     'trader' => 'TraderController',
+    'dollar' => 'DollarController',
 ]);

@@ -125,14 +125,25 @@
                             <has-error :form="form" field="nilai_rebate"></has-error>
                         </div>
                         <div class="form-group">
-                            <label>SUB IB</label>
+                            <label>Status SUB IB</label>
                             <!--select name="sub_id_id" v-model="form.sub_id_id" id="sub_id_id" class="form-control" :class="{ 'is-invalid': form.errors.has('sub_id_id') }">
                                 <option value="">Pilih Sub ID</option>
                                 <option value="admin">Admin</option>
                                 <option value="user">Standard User</option>
                             </select>
                             <has-error :form="form" field="sub_id_id"></has-error-->
-                            <v-select :options="data_sub_ib" v-model="form.sub_ib_id" :class="{ 'is-invalid': form.errors.has('sub_ib_id') }" required></v-select>
+                            <v-select :options="[{label: 'Ya', code: 'ya'}, {label: 'Tidak', code: 'tidak'}]" v-model="form.sub_ib" :class="{ 'is-invalid': form.errors.has('sub_ib') }" required></v-select>
+                            <has-error :form="form" field="sub_ib"></has-error>
+                        </div>
+                        <div class="form-group">
+                            <label>Upline SUB IB</label>
+                            <!--select name="sub_id_id" v-model="form.sub_id_id" id="sub_id_id" class="form-control" :class="{ 'is-invalid': form.errors.has('sub_id_id') }">
+                                <option value="">Pilih Sub ID</option>
+                                <option value="admin">Admin</option>
+                                <option value="user">Standard User</option>
+                            </select>
+                            <has-error :form="form" field="sub_id_id"></has-error-->
+                            <v-select :options="data_sub_ib" v-model="form.sub_ib_id" :class="{ 'is-invalid': form.errors.has('sub_ib_id') }"></v-select>
                             <has-error :form="form" field="sub_ib_id"></has-error>
                         </div>
                     </div>
@@ -165,6 +176,7 @@
                     bank: '',
                     nomor_rekening: '',
                     nilai_rebate: '',
+                    sub_ib: '',
                     sub_ib_id: '',
                 })
             }

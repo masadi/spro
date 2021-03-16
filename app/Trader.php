@@ -7,4 +7,22 @@ use Illuminate\Database\Eloquent\Model;
 class Trader extends Model
 {
     protected $fillable = ['nama_lengkap', 'nomor_akun', 'email', 'telepon', 'bank', 'nomor_rekening', 'nilai_rebate', 'sub_ib_id'];
+    /**
+     * Get the Sub_ib associated with the Trader
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function sub_ib()
+    {
+        return $this->hasOne('App\Sub_ib', 'trader_id', 'id');
+    }
+    /**
+     * Get all of the afiliasi for the Trader
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function afiliasi()
+    {
+        return $this->hasMany('App\Trader', 'sub_ib_id', 'id');
+    }
 }

@@ -9,13 +9,13 @@
               <div class="card-header">
                 <h3 class="card-title">Data SUB IB</h3>
 
-                <div class="card-tools">
+                <!--div class="card-tools">
                   
                   <button type="button" class="btn btn-sm btn-primary" @click="newModal">
                       <i class="fa fa-plus-square"></i>
                       Tambah Data
                   </button>
-                </div>
+                </div-->
               </div>
               <!-- /.card-header -->
               <div class="card-body table-responsive p-0">
@@ -28,6 +28,7 @@
                       <th>Telepon</th>
                       <th>Bank</th>
                       <th>Rekening</th>
+                      <th>Jumlah Afiliasi</th>
                       <th>Aksi</th>
                     </tr>
                   </thead>
@@ -40,6 +41,7 @@
                       <td>{{sub_ib.telepon}}</td>
                       <td>{{sub_ib.bank}}</td>
                       <td>{{sub_ib.nomor_rekening}}</td>
+                      <td>{{sub_ib.afiliasi_count}}</td>
                       <td>
 
                         <a href="#" @click="editModal(sub_ib)">

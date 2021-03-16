@@ -1,5 +1,6 @@
 export default [
     { path: '/dashboard', component: require('./components/Dashboard.vue').default },
+    { path: '/master/kurs-dollar', component: require('./components/master/Dollar.vue').default },
     { path: '/master/sub-ib', component: require('./components/master/Sub_ib.vue').default },
     { path: '/master/trader', component: require('./components/master/Trader.vue').default },
     { path: '/profile', component: require('./components/Profile.vue').default },

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Sub_ib;
+use App\Trader;
 class SubibController extends BaseController
 {
     protected $sub_ib = '';
@@ -25,7 +26,7 @@ class SubibController extends BaseController
      */
     public function index()
     {
-        $sub_ibs = $this->sub_ib->latest()->paginate(10);
+        $sub_ibs = Trader::where('sub_ib', 'ya')->withCount('afiliasi')->latest()->paginate(10);
 
         return $this->sendResponse($sub_ibs, 'Data SUB IB');
     }
@@ -37,9 +38,9 @@ class SubibController extends BaseController
      */
     public function list()
     {
-        $categories = $this->sub_ib->select('nama_lengkap', 'id')->get();
+        $traders = Trader::whereHas('sub_ib')->select('nama_lengkap', 'id')->get();
 
-        return $this->sendResponse($categories, 'Data SUB IB');
+        return $this->sendResponse($traders, 'Data SUB IB');
     }
 
 
