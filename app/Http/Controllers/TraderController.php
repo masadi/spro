@@ -57,6 +57,7 @@ class TraderController extends BaseController
     {
         
         $sub_ib_id = $request->get('sub_ib_id');
+        $sub_ib = $request->get('sub_ib');
         $trader = $this->trader->create([
             'nama_lengkap' => $request->get('nama_lengkap'),
             'nomor_akun' => $request->get('nomor_akun'),
@@ -68,7 +69,7 @@ class TraderController extends BaseController
             'sub_ib' => $request->get('sub_ib'),
             'sub_ib_id' => $sub_ib_id['code'],
         ]);
-        if($request->get('sub_ib') == 'ya'){
+        if($sub_ib['code'] == 'ya'){
             Sub_ib::create([
                 'trader_id' => $trader->id
             ]);
@@ -86,15 +87,13 @@ class TraderController extends BaseController
      */
     public function update(Request $request, $id)
     {
-        if($request->sub_ib == 'ya'){
+        if($request->sub_ib['code'] == 'ya'){
             Sub_ib::updateOrCreate([
                 'trader_id' => $id
             ]);
         } else {
             Sub_ib::where('trader_id', $id)->delete();
         }
-        $sub_ib_id = $request->sub_ib_id;
-        $sub_ib = $request->sub_ib;
         $trader = $this->trader->findOrFail($id);
 
         //$tag->update($request->all());
@@ -106,7 +105,7 @@ class TraderController extends BaseController
         $trader->nomor_rekening = $request->nomor_rekening;
         $trader->nilai_rebate = $request->nilai_rebate;
         $trader->sub_ib = $request->sub_ib['code'];
-        $trader->sub_ib_id = $sub_ib_id['code'];
+        $trader->sub_ib_id = $request->sub_ib_id['code'];
         $trader->save();
 
         return $this->sendResponse($trader, 'Data Trader berhasil diperbaharui');
