@@ -10,6 +10,7 @@ use Rap2hpoutre\FastExcel\FastExcel;
 use App\Transaksi;
 use App\Trader;
 use App\Setting;
+use Illuminate\Support\Facades\DB;
 
 class TransaksiController extends BaseController
 {
@@ -61,5 +62,26 @@ class TransaksiController extends BaseController
             );
         });
         return $this->sendResponse($data, 'File Rebate berhasil diupload');
+    }
+    public function rebate(Request $request){
+        $data = Trader::orderBy('nama_lengkap')->with(['transaksi' => function($query){
+
+        }])->whereNull('email')->paginate(10);
+        //$traders = [];
+        foreach($data as $d){
+            $record= array();
+			$record['nama_lengkap'] 	= $d->nama_lengkap;
+			$record['nomor_akun'] 	= $d->nomor_akun;
+			//$traders[] = $record;
+        }
+        $traders = Trader::orderBy('nama_lengkap')->withCount([
+            'transaksi AS volume' => function ($query) {
+                $query->select(DB::raw("SUM(volume) as paidsum"));
+            },
+            'transaksi AS rebate' => function ($query) {
+                $query->select(DB::raw("SUM(rebate) as rebatea"));
+            }
+        ])->whereNull('email')->paginate(10);
+        return $this->sendResponse($traders, 'Data Trader');
     }
 }

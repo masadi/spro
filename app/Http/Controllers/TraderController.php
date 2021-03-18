@@ -32,7 +32,7 @@ class TraderController extends BaseController
     }
     public function new_trader()
     {
-        $traders = $this->trader->orderBy('nama_lengkap')->whereNull('email')->paginate(10);
+        $traders = $this->trader->orderBy('nama_lengkap')->whereNull('email')->with(['transaksi'])->paginate(10);
 
         return $this->sendResponse($traders, 'Data Trader Baru');
     }

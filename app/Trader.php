@@ -25,4 +25,8 @@ class Trader extends Model
     {
         return $this->hasMany('App\Trader', 'sub_ib_id', 'id');
     }
+    public function transaksi()
+    {
+        return $this->hasMany('App\Transaksi', 'trader_id', 'id');
+    }
 }

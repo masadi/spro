@@ -222,9 +222,9 @@
                 $('#addNew').modal('show');
             },
 
-            loaddata_trader(){
+            loaddata_trader(page = 1){
                 if(this.$gate.isAdmin()){
-                    axios.get("/api/master/trader").then(({ data }) => (this.data_trader = data.data));
+                    axios.get('/api/master/trader?page=' + page).then(({ data }) => (this.data_trader = data.data));
                 }
             },
             loaddata_sub_ib(){
