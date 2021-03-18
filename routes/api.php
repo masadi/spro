@@ -40,3 +40,13 @@ Route::apiResources([
     'trader' => 'TraderController',
     'dollar' => 'DollarController',
 ]);
+Route::prefix('transaksi')->group(function () {
+    Route::get('/upload', 'TransaksiController@upload');
+    Route::post('/upload-file', 'TransaksiController@upload_file');
+    Route::get('/rebate', 'TransaksiController@rebate');
+    Route::get('/komisi', 'TransaksiController@komisi');
+    Route::get('/trader', 'TransaksiController@trader');
+    //Route::post('/all-kelas', 'TransaksiController@all_kelas');
+    //Route::post('select-kelas', 'TransaksiController@select_kelas');
+    //Route::post('simpan-wali-kelas', 'TransaksiController@simpan_wali_kelas');
+});

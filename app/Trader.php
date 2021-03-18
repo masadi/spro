@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Trader extends Model
 {
-    protected $fillable = ['nama_lengkap', 'nomor_akun', 'email', 'telepon', 'bank', 'nomor_rekening', 'nilai_rebate', 'sub_ib_id'];
+    protected $guarded = [];
     /**
      * Get the Sub_ib associated with the Trader
      *

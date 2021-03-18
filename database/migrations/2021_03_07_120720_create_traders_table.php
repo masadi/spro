@@ -19,8 +19,8 @@ class CreateTradersTable extends Migration
             $table->string('nomor_akun');
             $table->string('email')->nullable();
             $table->string('telepon')->nullable();
-            $table->string('bank');
-            $table->string('nomor_rekening');
+            $table->string('bank')->nullable();
+            $table->string('nomor_rekening')->nullable();
             $table->string('nilai_rebate');
             $table->enum('sub_ib', ['ya', 'tidak']);
             $table->timestamps();

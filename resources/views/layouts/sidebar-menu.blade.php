@@ -56,7 +56,7 @@
         <ul class="nav nav-treeview">
 
           <li class="nav-item">
-            <router-link to="/product/category" class="nav-link">
+            <router-link to="/transaksi/upload" class="nav-link">
               <i class="nav-icon fas fa-list-ol green"></i>
               <p>
                 Upload File Rebate
@@ -64,7 +64,7 @@
             </router-link>
           </li>
           <li class="nav-item">
-            <router-link to="/product/tag" class="nav-link">
+            <router-link to="/transaksi/rebate" class="nav-link">
               <i class="nav-icon fas fa-tags green"></i>
               <p>
                 Data Rebate Trader
@@ -72,7 +72,7 @@
             </router-link>
           </li>
           <li class="nav-item">
-            <router-link to="/product/tag" class="nav-link">
+            <router-link to="/transaksi/komisi" class="nav-link">
               <i class="nav-icon fas fa-tags green"></i>
               <p>
                 Data Komisi SUB IB
@@ -80,7 +80,7 @@
             </router-link>
           </li>
           <li class="nav-item">
-            <router-link to="/product/tag" class="nav-link">
+            <router-link to="/transaksi/trader" class="nav-link">
               <i class="nav-icon fas fa-tags green"></i>
               <p>
                 Trader Baru
