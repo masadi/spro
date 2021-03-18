@@ -26,7 +26,7 @@ class TraderController extends BaseController
      */
     public function index()
     {
-        $traders = $this->trader->latest()->paginate(10);
+        $traders = $this->trader->orderBy('nama_lengkap')->paginate(10);
 
         return $this->sendResponse($traders, 'Data Trader');
     }
