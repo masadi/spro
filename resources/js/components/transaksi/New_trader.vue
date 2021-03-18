@@ -7,14 +7,10 @@
         
             <div class="card" v-if="$gate.isAdmin()">
               <div class="card-header">
-                <h3 class="card-title">Data Trader</h3>
+                <h3 class="card-title">Data Trader Baru</h3>
 
                 <div class="card-tools">
                   
-                  <button type="button" class="btn btn-sm btn-primary" @click="newModal">
-                      <i class="fa fa-plus-square"></i>
-                      Tambah Data Trader
-                  </button>
                 </div>
               </div>
               <!-- /.card-header -->
@@ -187,7 +183,7 @@
 
                   this.$Progress.start();
                   
-                  axios.get('/api/trader?page=' + page).then(({ data }) => (this.data_trader = data.data));
+                  axios.get('/api/master/trader?page=' + page).then(({ data }) => (this.data_trader = data.data));
 
                   this.$Progress.finish();
             },
@@ -228,7 +224,7 @@
 
             loaddata_trader(){
                 if(this.$gate.isAdmin()){
-                    axios.get("/api/trader").then(({ data }) => (this.data_trader = data.data));
+                    axios.get("/api/master/trader").then(({ data }) => (this.data_trader = data.data));
                 }
             },
             loaddata_sub_ib(){

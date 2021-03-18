@@ -40,6 +40,9 @@ Route::apiResources([
     'trader' => 'TraderController',
     'dollar' => 'DollarController',
 ]);
+Route::prefix('master')->group(function () {
+    Route::get('/trader', 'TraderController@new_trader');
+});
 Route::prefix('transaksi')->group(function () {
     Route::get('/upload', 'TransaksiController@upload');
     Route::post('/upload-file', 'TransaksiController@upload_file');
