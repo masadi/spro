@@ -72,7 +72,7 @@ class TraderController extends BaseController
             'bank' => $request->get('bank'),
             'nomor_rekening' => $request->get('nomor_rekening'),
             'nilai_rebate' => $request->get('nilai_rebate'),
-            'sub_ib' => $request->get('sub_ib'),
+            'sub_ib' => $sub_ib['code'],
             'sub_ib_id' => $sub_ib_id['code'],
         ]);
         if($sub_ib['code'] == 'ya'){
