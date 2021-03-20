@@ -71,7 +71,11 @@
                     setTimeout(() => {
                         this.isLoading = false
                         this.progressBar = 0
-                    })
+                    });
+                    Toast.fire({
+                            icon: 'success',
+                            title: 'Upload berhasil'
+                    });
                 })
             },
             getResults(page = 1) {
@@ -96,7 +100,7 @@
                     this.$Progress.finish();
                         //  Fire.$emit('AfterCreate');
 
-                    this.loadDollar();
+                    //this.loadDollar();
                 })
                 .catch(() => {
                     this.$Progress.fail();
@@ -137,7 +141,7 @@
                     });
 
                     this.$Progress.finish();
-                    this.loadDollar();
+                    //this.loadDollar();
                 })
                 .catch(()=>{
                     Toast.fire({
@@ -154,7 +158,7 @@
         created() {
 
             this.$Progress.start();
-            this.loadDollar();
+            //this.loadDollar();
             this.$Progress.finish();
         }
     }

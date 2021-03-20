@@ -212,7 +212,18 @@
                 this.loaddata_sub_ib();
                 this.form.reset();
                 $('#addNew').modal('show');
-                this.form.fill(trader);
+                //this.form.fill(trader);
+                this.form.id = trader.id
+                this.form.nama_lengkap = trader.nama_lengkap
+                this.form.nomor_akun = trader.nomor_akun
+                this.form.email = trader.email
+                this.form.telepon = trader.telepon
+                this.form.bank = trader.bank
+                this.form.nomor_rekening = trader.nomor_rekening
+                this.form.nilai_rebate = trader.nilai_rebate
+                //this.form.sub_ib = trader.sub_id
+                //this.form.sub_ib_id = trader.sub_ib_id
+                //this.$emit('input', trader.sub_id);
                 console.log(trader)
             },
             newModal(){
