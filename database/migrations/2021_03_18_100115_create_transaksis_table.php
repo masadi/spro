@@ -17,6 +17,7 @@ class CreateTransaksisTable extends Migration
             $table->id();
             $table->foreignId('trader_id')->constrained();
             $table->date('tanggal');
+            $table->date('tanggal_upload');
             $table->string('volume');
             $table->integer('komisi')->unsigned();
             $table->integer('dollar');

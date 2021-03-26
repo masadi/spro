@@ -58,6 +58,7 @@ class TransaksiController extends BaseController
                     'komisi' => $trader->nilai_rebate,
                     'dollar' => $setting->value,
                     'rebate' => $rebate,
+                    'tanggal_upload' => date('Y-m-d'),
                 ]
             );
         });
@@ -66,10 +67,10 @@ class TransaksiController extends BaseController
     public function rebate(Request $request){
         $traders = Trader::orderBy('nama_lengkap')->whereHas('transaksi')->withCount([
             'transaksi AS volume' => function ($query) {
-                $query->select(DB::raw("SUM(volume) as paidsum"));
+                $query->select(DB::raw("SUM(volume) as paidsum"))->groupBy('tanggal_upload');
             },
             'transaksi AS rebate' => function ($query) {
-                $query->select(DB::raw("SUM(rebate) as rebatea"));
+                $query->select(DB::raw("SUM(rebate) as rebatea"))->groupBy('tanggal_upload');
             }
         ])->whereNotNull('email')->paginate(10);
         return $this->sendResponse($traders, 'Data Rebate Trader');

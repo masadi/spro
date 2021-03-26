@@ -22,6 +22,7 @@
                 <table class="table table-hover">
                   <thead>
                     <tr>
+                        <th>Tanggal Upload</th>
                       <th>Nama Lengkap</th>
                       <th>Nomor Akun</th>
                       <th>Volume Trading</th>
@@ -32,7 +33,7 @@
                   </thead>
                   <tbody>
                      <tr v-for="sub_ib in data_sub_ib.data" :key="sub_ib.id">
-
+                         <td>{{ sub_ib.tanggal_upload | date }}</td>
                       <td>{{sub_ib.nama_lengkap}}</td>
                       <td class="text-capitalize">{{sub_ib.nomor_akun}}</td>
                       <td>{{sub_ib.volume}}</td>

@@ -107,6 +107,10 @@ import 'vue-select/dist/vue-select.css';
 import { BootstrapVue } from 'bootstrap-vue'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
+moment.locale('id');
+Vue.filter('date', function (date) {
+    return moment(date).format('Do MMMM YYYY');
+})
 Vue.use(BootstrapVue)
 const app = new Vue({
     el: '#app',
