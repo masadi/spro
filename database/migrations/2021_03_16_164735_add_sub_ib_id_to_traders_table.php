@@ -15,7 +15,7 @@ class AddSubIbIdToTradersTable extends Migration
     {
         Schema::table('traders', function (Blueprint $table) {
             $table->foreignId('sub_ib_id')->nullable()->constrained()->after('sub_ib');
-            //$table->string('komisi_sub_id')->nullable();
+            $table->string('komisi_sub_id')->nullable();
         });
     }
 
@@ -28,6 +28,7 @@ class AddSubIbIdToTradersTable extends Migration
     {
         Schema::table('traders', function (Blueprint $table) {
             $table->dropForeign('traders_sub_ib_id_foreign');
+            //$table->dropColumn(['sub_ib_id', 'komisi_sub_id']);
             $table->dropColumn(['sub_ib_id', 'komisi_sub_id']);
         });
     }
