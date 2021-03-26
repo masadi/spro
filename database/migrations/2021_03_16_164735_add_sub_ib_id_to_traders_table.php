@@ -15,7 +15,7 @@ class AddSubIbIdToTradersTable extends Migration
     {
         Schema::table('traders', function (Blueprint $table) {
             $table->foreignId('sub_ib_id')->nullable()->constrained()->after('sub_ib');
-            $table->string('komisi_sub_id')->nullable();
+            //$table->string('komisi_sub_id')->nullable();
         });
     }
 

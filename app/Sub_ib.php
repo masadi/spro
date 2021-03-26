@@ -17,4 +17,8 @@ class Sub_ib extends Model
     {
         return $this->hasOne(Trader::class, 'trader_id', 'id');
     }
+    public function komisi()
+    {
+        return $this->hasMany('App\Komisi', 'sub_ib_id', 'id');
+    }
 }
