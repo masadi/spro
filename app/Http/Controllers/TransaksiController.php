@@ -65,14 +65,25 @@ class TransaksiController extends BaseController
         return $this->sendResponse($data, 'File Rebate berhasil diupload');
     }
     public function rebate(Request $request){
-        $traders = Trader::orderBy('nama_lengkap')->whereHas('transaksi')->withCount([
+        /*$traders = Trader::orderBy('nama_lengkap')->whereHas('transaksi')->withCount([
             'transaksi AS volume' => function ($query) {
-                $query->select(DB::raw("SUM(volume) as paidsum"))->groupBy('tanggal_upload');
+                $query->select(DB::raw("SUM(volume) as paidsum"));//->groupBy('tanggal_upload');
             },
             'transaksi AS rebate' => function ($query) {
-                $query->select(DB::raw("SUM(rebate) as rebatea"))->groupBy('tanggal_upload');
+                $query->select(DB::raw("SUM(rebate) as rebatea"));//->groupBy('tanggal_upload');
             }
-        ])->whereNotNull('email')->paginate(10);
+        ])->whereNotNull('email')->paginate(10);*/
+        $traders = Transaksi::whereHas('trader', function($query){
+            $query->whereNotNull('email');
+        })
+        ->with('trader')
+        ->selectRaw('trader_id')
+        ->selectRaw('tanggal_upload')
+        ->selectRaw("SUM(volume) as paidsum")
+        ->selectRaw("SUM(rebate) as rebatea")
+        ->groupBy('trader_id')
+        ->groupBy('tanggal_upload')
+        ->paginate(10);
         return $this->sendResponse($traders, 'Data Rebate Trader');
     }
 }

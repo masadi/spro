@@ -25,24 +25,38 @@
                         <th>Tanggal Upload</th>
                       <th>Nama Lengkap</th>
                       <th>Nomor Akun</th>
+                      <th>Bank</th>
+                      <th>Rekening</th>
                       <th>Volume Trading</th>
                       <th>Kadar Per Lot</th>
                       <th>Jumlah Rebate</th>
                       <th>Detil</th>
+                      <th>Aksi</th>
                     </tr>
                   </thead>
                   <tbody>
                      <tr v-for="sub_ib in data_sub_ib.data" :key="sub_ib.id">
                          <td>{{ sub_ib.tanggal_upload | date }}</td>
-                      <td>{{sub_ib.nama_lengkap}}</td>
-                      <td class="text-capitalize">{{sub_ib.nomor_akun}}</td>
-                      <td>{{sub_ib.volume}}</td>
-                      <td>{{sub_ib.nilai_rebate}}</td>
-                      <td>{{sub_ib.rebate}}</td>
+                      <td>{{sub_ib.trader.nama_lengkap}}</td>
+                      <td class="text-capitalize">{{sub_ib.trader.nomor_akun}}</td>
+                      <td>{{sub_ib.trader.bank}}</td>
+                      <td>{{sub_ib.trader.nomor_rekening}}</td>
+                      <td>{{sub_ib.paidsum}}</td>
+                      <td>{{sub_ib.trader.nilai_rebate}}</td>
+                      <td>{{sub_ib.rebatea}}</td>
                       <td>
 
                         <a href="#" @click="editModal(sub_ib)">
                             <i class="fa fa-eye blue"></i>
+                        </a>
+                      </td>
+                      <td>
+                        <!--
+                            if transfer = merah (selesai)
+                            if belum = hijau (transfer)
+                            -->
+                        <a href="#" class="btn btn-danger btn-sm">
+                            Selesai
                         </a>
                       </td>
                     </tr>
