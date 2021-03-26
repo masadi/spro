@@ -74,6 +74,7 @@ class TraderController extends BaseController
             'nilai_rebate' => $request->get('nilai_rebate'),
             'sub_ib' => $sub_ib['code'],
             'sub_ib_id' => $sub_ib_id['code'],
+            'komisi_sub_id' => 8 - $request->get('nilai_rebate'),
         ]);
         if($sub_ib['code'] == 'ya'){
             Sub_ib::create([
@@ -112,6 +113,7 @@ class TraderController extends BaseController
         $trader->nilai_rebate = $request->nilai_rebate;
         $trader->sub_ib = $request->sub_ib['code'];
         $trader->sub_ib_id = $request->sub_ib_id['code'];
+        $trader->komisi_sub_id = (8 - $request->nilai_rebate);
         $trader->save();
 
         return $this->sendResponse($trader, 'Data Trader berhasil diperbaharui');

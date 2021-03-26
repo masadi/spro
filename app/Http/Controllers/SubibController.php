@@ -26,7 +26,7 @@ class SubibController extends BaseController
      */
     public function index()
     {
-        $sub_ibs = Trader::where('sub_ib', 'ya')->withCount('afiliasi')->latest()->paginate(10);
+        $sub_ibs = Trader::whereHas('sub_ib')->withCount('afiliasi')->latest()->paginate(10);
 
         return $this->sendResponse($sub_ibs, 'Data SUB IB');
     }
